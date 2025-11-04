@@ -1,0 +1,54 @@
+.battery-dashboard {
+  padding: 20px;
+  background: #f5f7fa;
+}
+
+.pods-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pod-card {
+  width: 220px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.pod-card:hover {
+  transform: scale(1.05);
+}
+
+.battery-bar {
+  height: 20px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  position: relative;
+}
+
+.battery-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00c853, #b2ff59);
+  width: 0;
+  animation: fillBattery 2s forwards;
+}
+@keyframes fillBattery {
+  from { width: 0; }
+  to { width: var(--battery-level); }
+}
+
+/* Color states */
+.pod-card.good .battery-fill {
+  background: linear-gradient(90deg, #00c853, #b2ff59);
+}
+.pod-card.medium .battery-fill {
+  background: linear-gradient(90deg, #ffb300, #fff176);
+}
+.pod-card.low .battery-fill {
+  background: linear-gradient(90deg, #d32f2f, #ef5350);
+}
